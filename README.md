@@ -11,3 +11,5 @@ https://www.npmjs.com/package/react-native-qrcode-svg
 
 https://docs.expo.dev/versions/latest/sdk/bar-code-scanner/
 
+https://openbase.com/js/expo-payments-stripe
+
