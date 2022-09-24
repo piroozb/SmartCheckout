@@ -1,23 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import Main from "./pages/Main"
-const Stack = createStackNavigator();
+import Logout from "./sources/logout.png";
 
 // pages
-import Scanner from "./pages/Scanner"
+import Scanner from "./pages/Scanner";
+import Main from "./pages/Main";
+import Cart from "./pages/Cart";
+
+const Stack = createStackNavigator();
 
 export default function App() {
+
   return (
 <>
       <SafeAreaView style={styles.top_safe_container} />
       <SafeAreaView style={styles.bottom_safe_container}>
-        <TouchableOpacity style={styles.btn}><Text>balls</Text></TouchableOpacity>
         <NavigationContainer>
             <Stack.Navigator>
               <Stack.Group>
                 <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
+                <Stack.Screen name="Scanner" component={Scanner} options={{ headerShown: false }} />
+                <Stack.Screen name="Cart" component={Cart} options={{ headerShown: false }}/>
               </Stack.Group>
             </Stack.Navigator>
         </NavigationContainer>
@@ -35,12 +40,4 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white"
   },
-  btn: {
-    alignItems: "right",
-    backgroundColor: 'white',
-    padding: 2,
-    paddingHorizontal: 4,
-    borderRadius: 15,
-    paddingVertical: 15 
-},
 });
