@@ -26,11 +26,11 @@ export default function App() {
 const styles = StyleSheet.create({
   top_safe_container: {
     flex: 0,
-    backgroundColor: 'darkorange'
+    backgroundColor: "white"
   },
   bottom_safe_container: {
     flex: 1,
-    backgroundColor: "darkorange"
+    backgroundColor: "white"
   },
   btn: {
     alignItems: "right",
