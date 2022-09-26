@@ -4,7 +4,18 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import BaseLayout from '../Components/BaseLayout';
 import Logout from "../sources/logout.png"
 
+// firebase
+import {firestore} from '../firebaseConfig';
+import {doc, getDoc} from 'firebase/firestore';
+
+// redux
+import { useDispatch } from 'react-redux';
+import { addedToCart } from '../cartSlice';
+
 export default function Scanner(props) {
+  // redux
+  const dispatch = useDispatch();
+
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -25,9 +36,18 @@ export default function Scanner(props) {
     getBarCodeScannerPermissions();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }) => {
+  const handleBarCodeScanned = async ({ type, data }) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    try {
+      console.log(firestore);
+      const clothDocument = await getDoc(doc(firestore, "clothes", data));
+      dispatch(addedToCart({id: clothDocument.id, name: clothDocument.data().name, price: clothDocument.data().price}));
+      console.log(clothDocument.data());
+    } catch (e) {
+      console.log('Error:')
+      console.log(e)
+    }
   };
 
   if (hasPermission === null) {

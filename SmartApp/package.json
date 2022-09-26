@@ -10,16 +10,22 @@
   },
   "dependencies": {
     "@expo/webpack-config": "^0.17.0",
+    "@react-native-firebase/app": "^15.6.0",
+    "@react-native-firebase/firestore": "^15.6.0",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/stack": "^6.3.1",
+    "@reduxjs/toolkit": "^1.8.5",
     "expo": "~46.0.9",
     "expo-barcode-scanner": "~11.4.0",
     "expo-status-bar": "~1.4.0",
+    "firebase": "^9.10.0",
     "react": "18.0.0",
     "react-dom": "^18.0.0",
     "react-native": "0.69.5",
     "react-native-divider": "^1.0.3",
-    "react-native-web": "^0.18.9"
+    "react-native-web": "^0.18.9",
+    "react-redux": "^8.0.4",
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

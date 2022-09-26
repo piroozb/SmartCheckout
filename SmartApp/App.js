@@ -9,12 +9,16 @@ import Scanner from "./pages/Scanner";
 import Main from "./pages/Main";
 import Cart from "./pages/Cart";
 
+// redux
+import store from './store';
+import { Provider } from 'react-redux'
+
 const Stack = createStackNavigator();
 
 export default function App() {
 
   return (
-<>
+<Provider store={store}>
       <SafeAreaView style={styles.top_safe_container} />
       <SafeAreaView style={styles.bottom_safe_container}>
         <NavigationContainer>
@@ -27,7 +31,7 @@ export default function App() {
             </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView >
-    </>
+    </Provider>
   );
 }
 
